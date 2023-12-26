@@ -1,9 +1,18 @@
 <script setup>
+import FormLogin from '@/components/Login/FormLogin.vue';
+
 
 </script>
 
 <template>
+
   <main>
-   <h2>Login</h2>
+ 
+  
+   <FormLogin/>
   </main>
 </template>
+<style scoped>
+
+
+</style>

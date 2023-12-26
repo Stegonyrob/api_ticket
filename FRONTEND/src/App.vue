@@ -1,15 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
+import Footer from '../src/components/generals/Footer.vue'
 </script>
 
 <template>
   <header>
-   
-
     <div class="wrapper">
-     
-
       <nav>
         <RouterLink to="/">Login</RouterLink>
         <RouterLink to="/list">List</RouterLink>
@@ -21,6 +17,7 @@ import { RouterLink, RouterView } from 'vue-router'
   </header>
 
   <RouterView />
+  <Footer/>
 </template>
 
 <style scoped>
