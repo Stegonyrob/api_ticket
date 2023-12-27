@@ -25,19 +25,19 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/FormView.vue')
     },   {
-      path: '/euser',
-      name: 'euser',
+      path: '/edit',
+      name: 'edit',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/EditUserView.vue')
+      component: () => import('../views/EditView.vue')
     },   {
-      path: '/etec',
-      name: 'etec',
+      path: '/logout',
+      name: 'logout',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/EditTecView.vue')
+      component: () => import('../views/LogOutView.vue')
     }
 
   ]
