@@ -1,10 +1,4 @@
-<template>
-    <div class="form-group">
-    <input :class="{ 'form-control': true, 'field-icon': icon }" :type="type" :value="modelValue" :placeholder="placeholder" :required="required" @input="updateValue($event)" />
-    <span v-if="icon" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-    </div>
-   </template>
-   
+ 
    <script setup>
    import { ref } from 'vue';
    
@@ -23,13 +17,21 @@
    };
    </script>
    
+
+<template>
+    <div class="form-group">
+    <input :class="{ 'form-control': true, 'field-icon': icon }" :type="type" :value="modelValue" :placeholder="placeholder" :required="required" @input="updateValue($event)" />
+    <span v-if="icon" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+    </div>
+   </template>
+  
    <style scoped>
    .form-control{
        background: transparent;
        border: none;
        height: 50px;
-       color: rgba(255,255,255,1) !important;
-        border: 1px solid transparent;
+       color: gray;
+       border: 1px solid transparent;
        background: #e6eaf2;
        border-radius: 40px;
        padding-left: 20px;
