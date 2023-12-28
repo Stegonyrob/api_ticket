@@ -19,15 +19,15 @@ const updateValue = (event) => {
 
 
 <template>
-    <div class="form-group">
+
         <textarea
     ref="textarea"
     v-model="input"
-    placeholder="Ingrese su solicitud..."
+    placeholder="Ingrese el texto aquí..."
     class="form-group p-4"
     @input="resize()" />
    
-    </div>
+ 
    </template>
    
    
@@ -35,13 +35,14 @@ const updateValue = (event) => {
    .form-group{
        background: transparent;
        border: none;
-       height: 20rem;
+       height: 10rem;
        color:black !important;
         border: 1px solid transparent;
        background: #e6eaf2;
        border-radius: 20px;
        transition: .3s;
-       width:50rem;
+       width: 100%;
+  
     
    }
    
