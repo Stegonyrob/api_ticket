@@ -4,10 +4,9 @@ import Form from '../components/Form/Form.vue'
 <template>
   <div class="form">
    
-    <Form/>
+    <Form />
   </div>
 </template>
 
 <style>
-
 </style>
