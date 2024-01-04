@@ -2,11 +2,15 @@ package dev.stella.appi_ticket.models;
 
 import java.util.Date;
 
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +27,11 @@ public class Incident {
     private String description;
     private String departament;
     private String solution;
+    
+    @ManyToOne
+    @JoinColumn(name = "user_id") // asumiendo que user_id es la columna de clave externa en la tabla Incident
+    private User user;
+    
     
      public Incident() {
     }

@@ -2,6 +2,8 @@ package dev.stella.appi_ticket.controllers;
 
 import java.util.List;
 
+
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,25 +35,27 @@ public class UserController {
   @GetMapping(path = "/{id}")
   public ResponseEntity<User> show(@PathVariable("id") Long id) throws Exception {
       User user = this.service.getById(id);
-      return ResponseEntity.status(HttpStatus.OK).body(user);
+      return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(user);
   }
 
   @PostMapping(path = "")
   public ResponseEntity<User> create(@RequestBody User user) {
       User newUser = this.service.save(user);
-      return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
+      return ResponseEntity.status(201).body(newUser);
   }
-
   @PutMapping("/{id}")
   public ResponseEntity<User> update(@PathVariable("id") Long id, @RequestBody User user) throws Exception {
-      User updatedUser = this.service.update(id, user);
-      return ResponseEntity.status(HttpStatus.OK).body(updatedUser);
-  }
 
+      User updatedUser = service.update(id, user);
+
+      return ResponseEntity.status(200).body(updatedUser);
+  }
   @DeleteMapping(path = "/{id}")
-  public ResponseEntity<String> remove(@PathVariable("id") Long id) throws Exception { 
-      String delete = this.service.delete(id);
-      return ResponseEntity.status(HttpStatus.OK).body(delete);
-  }
-}
+  public ResponseEntity<Message> remove(@PathVariable("id") Long id) throws Exception { 
 
+      Message delete = service.delete(id);
+
+      return ResponseEntity.status(200).body(delete);
+  }
+
+}

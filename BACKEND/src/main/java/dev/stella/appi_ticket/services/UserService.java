@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import dev.stella.appi_ticket.controllers.Message;
 import dev.stella.appi_ticket.exceptions.UserNotFoundException;
 import dev.stella.appi_ticket.models.User;
 import dev.stella.appi_ticket.repositories.UserRepository;
@@ -37,9 +38,18 @@ public class UserService {
        return repository.save(updatingUser);
    }
 
-   public String delete(Long id) throws UserNotFoundException {
-       User user = repository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
-       repository.delete(user);
-       return "The User is deleted";
-   }
+   public Message delete(Long id) throws Exception {
+        
+    User user = repository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
+
+    String userName = user.getUsername();
+
+    repository.delete(user);
+
+    Message message = new Message();
+
+    message.setMessage(userName + " is deleted from the movies table");
+
+    return message;
+}
 }
