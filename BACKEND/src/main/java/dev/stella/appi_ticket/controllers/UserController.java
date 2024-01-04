@@ -1,7 +1,5 @@
 package dev.stella.appi_ticket.controllers;
 
-import java.util.List;
-
 
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -26,11 +24,6 @@ public class UserController {
       this.service = service;
   }
 
-  @GetMapping(path = "")
-  public List<User> index() {
-      List<User> users = this.service.getAll();
-      return users;
-  }
 
   @GetMapping(path = "/{id}")
   public ResponseEntity<User> show(@PathVariable("id") Long id) throws Exception {

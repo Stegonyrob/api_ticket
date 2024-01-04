@@ -1,6 +1,5 @@
 package dev.stella.appi_ticket.services;
 
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -17,10 +16,7 @@ public class UserService {
        this.repository = repository;
    }
 
-   public List<User> getAll() {
-       return repository.findAll();
-   }
-
+  
    public User getById(Long id) throws UserNotFoundException {
        return repository.findById(id).orElseThrow(() -> new UserNotFoundException("User not found"));
    }

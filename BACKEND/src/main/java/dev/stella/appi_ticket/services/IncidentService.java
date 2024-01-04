@@ -1,6 +1,6 @@
 package dev.stella.appi_ticket.services;
 
-import java.util.List;
+
 
 import org.springframework.stereotype.Service;
 
@@ -16,9 +16,7 @@ public class IncidentService {
         this.repository = repository;
     }
 
-   public List<Incident> getAll(){
-    return repository.findAll();
-   }
+ 
    public Incident getById(Long id) throws IncidentNotFoundException{
     return repository.findById(id).orElseThrow(() ->  new IncidentNotFoundException("Incident not found")  );
    }
