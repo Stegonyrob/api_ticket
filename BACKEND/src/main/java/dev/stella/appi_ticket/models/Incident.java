@@ -86,5 +86,8 @@ public class Incident {
     public void setSolution(String solution) {
         this.solution = solution;
     }
+    public static Object builder() {
+        return null;
+    }
 }
 

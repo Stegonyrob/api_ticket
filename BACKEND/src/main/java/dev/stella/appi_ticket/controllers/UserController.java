@@ -1,10 +1,14 @@
 package dev.stella.appi_ticket.controllers;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 
-import org.springframework.http.HttpStatusCode;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,43 +16,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dev.stella.appi_ticket.controllers.dto.UserDTO;
 import dev.stella.appi_ticket.models.User;
-import dev.stella.appi_ticket.services.UserService;
+import dev.stella.appi_ticket.services.IUserService;
+
 @RestController
-@RequestMapping(path = "${api-endpoint}/users")
+@RequestMapping(path = "/api/users")
 public class UserController {
-
-  UserService service;
-
-  public UserController(UserService service) {
-      this.service = service;
-  }
+   @Autowired
+   private IUserService userService;
 
 
-  @GetMapping(path = "/{id}")
-  public ResponseEntity<User> show(@PathVariable("id") Long id) throws Exception {
-      User user = this.service.getById(id);
-      return ResponseEntity.status(HttpStatusCode.valueOf(200)).body(user);
-  }
+   
+   @PostMapping("/save")
+   public ResponseEntity<?> saveUSer(@RequestBody UserDTO userDTO) throws URISyntaxException {
+       if (((String) userDTO.getName()).isBlank()) {
+           return ResponseEntity.badRequest().build();
+       }
 
-  @PostMapping(path = "")
-  public ResponseEntity<User> create(@RequestBody User user) {
-      User newUser = this.service.save(user);
-      return ResponseEntity.status(201).body(newUser);
-  }
-  @PutMapping("/{id}")
-  public ResponseEntity<User> update(@PathVariable("id") Long id, @RequestBody User user) throws Exception {
+   
+       return ResponseEntity.created(new URI("/api/user/save")).build();
+   }
 
-      User updatedUser = service.update(id, user);
+   @PutMapping("/update/{id}")
+   public ResponseEntity<?> updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO){
+       Optional<User> userOptional = userService.findById(id);
 
-      return ResponseEntity.status(200).body(updatedUser);
-  }
-  @DeleteMapping(path = "/{id}")
-  public ResponseEntity<Message> remove(@PathVariable("id") Long id) throws Exception { 
+       if(userOptional.isPresent()){
+           User user = userOptional.get();
+                 userService.save(user);
+           return ResponseEntity.ok("Registro Actualizado");
+       }
 
-      Message delete = service.delete(id);
+       return ResponseEntity.notFound().build();
+   }
 
-      return ResponseEntity.status(200).body(delete);
-  }
+   @DeleteMapping("/delete/{id}")
+   public ResponseEntity<?> deleteById(@PathVariable Long id){
+       if(id != null){
+           userService.deleteById(id);
+           return ResponseEntity.noContent().build();
+       }
 
+       return ResponseEntity.badRequest().body("El parametro id se encuentra vacio");
+   }
 }

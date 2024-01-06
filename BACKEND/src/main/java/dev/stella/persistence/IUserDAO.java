@@ -3,8 +3,10 @@ package dev.stella.persistence;
 import java.util.List;
 import java.util.Optional;
 
-import dev.stella.appi_ticket.models.User;
+import org.springframework.stereotype.Component;
 
+import dev.stella.appi_ticket.models.User;
+@Component
 public interface IUserDAO {
     List<User> findAll();
     
