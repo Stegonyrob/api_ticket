@@ -36,7 +36,7 @@ public void deleteById(Long id) {
 
 @Override
 public Incident save(Incident incident) {
-  // TODO Auto-generated method stub
+  
   throw new UnsupportedOperationException("Unimplemented method 'save'");
 }
 

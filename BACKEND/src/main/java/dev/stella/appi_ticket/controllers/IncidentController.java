@@ -1,7 +1,6 @@
 package dev.stella.appi_ticket.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import dev.stella.appi_ticket.models.Incident;
