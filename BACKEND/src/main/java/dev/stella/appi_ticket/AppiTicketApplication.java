@@ -3,7 +3,7 @@ package dev.stella.appi_ticket;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"dev.stella.appi_ticket", "dev.stella.controllers", "dev.stella.persistence"})
 public class AppiTicketApplication {
 
 	public static void main(String[] args) {
