@@ -19,5 +19,7 @@ import Header from '../src/components/generals/Header.vue'
 </template>
 
 <style scoped>
-
+body{
+  background-image: url(assets/image/image3.png);
+}
 </style>

@@ -15,4 +15,8 @@ public interface IUserDAO {
     void save(User user);
 
     void deleteById(Long id);
+
+    User findByUsernameAndPassword(String username, String password);
+
+    User findByUsername(String username);
 }

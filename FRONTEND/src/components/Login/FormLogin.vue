@@ -15,8 +15,8 @@ const visible = ref(false)
         <Logo class=" logo" />
         <div class="card">
          <form @submit.prevent="handleSubmit" class="signin-form">
-        <Input class="m-4 login" type="text" placeholder="Username" required />
-        <Input class="m-4 login" type="password" placeholder="Password" required />
+        <Input class="m-4 login" type="text" placeholder="Username" required id="username"/>
+        <Input class="m-4 login" type="password" placeholder="Password" required id="password"/>
         <div class="form-group">
          <button type="submit" class="form-control btn btn-primary submit px-5 m-4">Sign In</button>
         </div>

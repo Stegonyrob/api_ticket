@@ -1,4 +1,3 @@
-
 <script setup>
 import { ref, onMounted } from 'vue';
 
@@ -6,99 +5,94 @@ import { ref, onMounted } from 'vue';
 const items = ref([]);
 
 onMounted(async () => {
-  try {
-    const response = await fetch('http://your-api-url/items');
-    const data = await response.json();
-    items.value = data;
-  } catch (error) {
-    console.error('Error fetching data:', error);
-  }
+ try {
+   const response = await fetch('http://your-api-url/items');
+   const data = await response.json();
+   items.value = data;
+ } catch (error) {
+   console.error('Error fetching data:', error);
+ }
 });
 </script>
 
 <template>
-    <div class="container">
-    <div class="row">
-        <div class="col-md-offset-1 col-md-10">
-            <div class="panel">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col col-sm-3 col-xs-12">
-                            <h4 class="title">Lista de incidencias</h4>
-                        </div>
-                        <div class="col-sm-9 col-xs-12 text-right">
-                            <div class="btn_group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <button class="btn btn-default" title="Reload"><i class="bi bi-arrow-repeat"></i></button>
-                                <button class="btn btn-default" title="Pdf"><i class="bi bi-file-earmark-pdf-fill"></i></button>
-                                <button class="btn btn-default" title="Excel"><i class="bi bi-file-earmark-excel-fill"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Numero de solicitud</th>
-                                <th>Fecha</th>
-                                <th>Estado</th>
-                                <th>Nombre</th>
-                                <th>Title</th>
-                                <th>Accion</th>
-                            </tr>
-                        </thead>
-      <tbody>
-        <tr v-for="item in items" :key="item.id">
-          <td>{{ item.id }}</td>
-          <td>{{ item.date }}</td>
-          <td>{{ item.status }}</td>
-          <td>{{ item.name }}</td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.action }}
-            <ul class="action-list">
-                                        <li><a href="#" data-tip="edit"><i class="bi bi-pencil-square"></i></a></li>
-                                        <li><a href="#" data-tip="delete"><i class="bi bi-trash"></i></a></li>
-                                    </ul></td>
-        </tr>
-      </tbody>
-    </table>
+   <div class="container">
+   <div class="row">
+       <div class="col-md-offset-1 col-md-10">
+           <div class="panel">
+               <div class="panel-heading">
+                  <div class="row">
+                      <div class="col col-sm-3 col-xs-12">
+                          <h4 class="title">Lista de incidencias</h4>
+                      </div>
+                      <div class="col-sm-9 col-xs-12 text-right">
+                          <div class="btn_group">
+                              <input type="text" class="form-control" placeholder="Search">
+                              <button class="btn btn-default" title="Reload"><i class="bi bi-arrow-repeat"></i></button>
+                              <button class="btn btn-default" title="Pdf"><i class="bi bi-file-earmark-pdf-fill"></i></button>
+                              <button class="btn btn-default" title="Excel"><i class="bi bi-file-earmark-excel-fill"></i></button>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="panel-body table-responsive">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Numero de solicitud</th>
+                              <th>Fecha</th>
+                              <th>Estado</th>
+                              <th>Nombre</th>
+                              <th>Title</th>
+                              <th>Accion</th>
+                          </tr>
+                      </thead>
+     <tbody>
+       <tr v-for="item in items" :key="item.id">
+         <td>{{ item.id }}</td>
+         <td>{{ item.date }}</td>
+         <td>{{ item.status }}</td>
+         <td>{{ item.name }}</td>
+         <td>{{ item.title }}</td>
+         <td>{{ item.action }}
+           <ul class="action-list">
+                                     <li><a href="#" data-tip="edit"><i class="bi bi-pencil-square"></i></a></li>
+                                     <li><a href="#" data-tip="delete"><i class="bi bi-trash"></i></a></li>
+                                 </ul></td>
+       </tr>
+     </tbody>
+   </table>
 
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries</div>
-                        <div class="col-sm-6 col-xs-6">
-                            <ul class="pagination hidden-xs pull-right">
-                                <li><a href="#"> <i class="fa fa-arrows-v" aria-hidden="true"></i> </a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#"> > </a></li>
-                            </ul>
-                            <ul class="pagination visible-xs pull-right">
-                                <li><a href="#"> <i class="fa fa-arrows-v" aria-hidden="true"></i> </a></li>
-                                <li><a href="#"> > </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+               <div class="panel-footer">
+                  <div class="row">
+                      <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries</div>
+                      <div class="col-sm-6 col-xs-6">
+                          <ul class="pagination hidden-xs pull-right">
+                              <li><a href="#"> <i class="fa fa-arrows-v" aria-hidden="true"></i> </a></li>
+                              <li class="active"><a href="#">1</a></li>
+                              <li><a href="#">2</a></li>
+                              <li><a href="#">3</a></li>
+                              <li><a href="#">4</a></li>
+                              <li><a href="#">5</a></li>
+                              <li><a href="#"> > </a></li>
+                          </ul>
+                          <ul class="pagination visible-xs pull-right">
+                              <li><a href="#"> <i class="fa fa-arrows-v" aria-hidden="true"></i> </a></li>
+                              <li><a href="#"> > </a></li>
+                          </ul>
+                      </div>
+                  </div>
+               </div>
+           </div>
+       </div>
+   </div>
 </div>
 
-
-
-
-
-
-
-
-
-  </div>
+ </div>
 </template>
+
+
+
 
 <style>
     demo{ font-family: 'Noto Sans', sans-serif; }

@@ -12,45 +12,44 @@ import dev.stella.appi_ticket.services.IIncidentService;
 import dev.stella.persistence.IIncidentDAO;
 
 @Service
-public class IncidentServiceImpl implements IIncidentService{
+public class IncidentServiceImpl implements IIncidentService {
 
-   @Autowired
-   private IIncidentDAO incidentDAO;
+  @Autowired
+  private IIncidentDAO incidentDAO;
 
-   @Override
-   public List<Incident> findAll() {
-       return incidentDAO.findAll();
-   }
+  @Override
+  public List<Incident> findAll() {
+      return incidentDAO.findAll();
+  }
 
-   @Override
-   public Optional<Incident> findById(Long id) {
-       return incidentDAO.findById(id);
-   }
+  @Override
+  public Optional<Incident> findById(Long id) {
+      return incidentDAO.findById(id);
+  }
 
-   @Override
-   public void save(Incident incident) {
-       // Validar los datos del incidente
-       if (incident == null || incident.getName() == null || incident.getName().isEmpty()) {
-           throw new IllegalArgumentException("El nombre del incidente no puede estar vacío.");
-       }
+  @Override
+  public Incident save(Incident incident) {
+      validateIncident(incident);
+      try {
+          return incidentDAO.save(incident);
+      } catch (Exception e) {
+          throw new RuntimeException("Error al guardar el incidente.", e);
+      }
+  }
 
-       // Guardar el incidente en la base de datos
-       try {
-           incidentDAO.save(incident);
-       } catch (Exception e) {
-           // Manejar la excepción
-           throw new RuntimeException("Error al guardar el incidente.", e);
-       }
-   }
+  @Override
+  public void deleteById(Long id) {
+      incidentDAO.deleteById(id);
+  }
 
-   @Override
-   public void deleteById(Long id) {
-       incidentDAO.deleteById(id);
-   }
+  @Override
+  public void save(IncidentDTO incidentDTO) {
+     throw new UnsupportedOperationException("Unimplemented method 'save'");
+  }
 
-@Override
-public void save(IncidentDTO incidentDTO) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'save'");
-}
+  private void validateIncident(Incident incident) {
+      if (incident == null || incident.getName() == null || incident.getName().isEmpty()) {
+          throw new IllegalArgumentException("El nombre del incidente no puede estar vacío.");
+      }
+  }
 }

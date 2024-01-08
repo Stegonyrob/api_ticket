@@ -15,7 +15,7 @@ public  interface IIncidentDAO {
 
     Optional<Incident> findById(Long id);
 
-    void save(Incident incident);
+    Incident save(Incident incident);
 
     void deleteById(Long id);
 } 

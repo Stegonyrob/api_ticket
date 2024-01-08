@@ -28,14 +28,17 @@ return (List<Incident>) incidentRepository.findAll();
 public Optional<Incident> findById(Long id) {
     return  incidentRepository.findById(id);}
 
-@Override
-public void save(Incident incident) {
-   incidentRepository.save(incident);
-}
+
 
 @Override
 public void deleteById(Long id) {
   incidentRepository.deleteById(id);}
+
+@Override
+public Incident save(Incident incident) {
+  // TODO Auto-generated method stub
+  throw new UnsupportedOperationException("Unimplemented method 'save'");
+}
 
 
     

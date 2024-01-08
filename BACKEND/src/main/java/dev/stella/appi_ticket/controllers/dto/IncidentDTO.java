@@ -3,87 +3,69 @@ package dev.stella.appi_ticket.controllers.dto;
 import java.util.Date;
 
 public class IncidentDTO {
-   private Long id;
-   private String title;
-   private Date date;
-   private String description;
 
-   private IncidentDTO(Builder builder) {
-       this.id = builder.id;
-       this.title = builder.title;
-       this.date = builder.date;
-       this.description = builder.description;
-   }
+  private Long id;
+  private String title;
+  private Date date;
+  private String description;
 
-   public Long getId() {
-    return id;
-}
+  private IncidentDTO(Builder builder) {
+      this.id = builder.id;
+      this.title = builder.title;
+      this.date = builder.date;
+      this.description = builder.description;
+  }
 
-public void setId(Long id) {
-    this.id = id;
-}
+  public Long getId() {
+      return id;
+  }
 
-public void setName(String name) {
-}
+  public String getTitle() {
+      return title;
+  }
 
-public String getTitle() {
-    return title;
-}
+  public Date getDate() {
+      return date;
+  }
 
-public void setTitle(String title) {
-    this.title = title;
-}
+  public String getDescription() {
+      return description;
+  }
 
-public Date getDate() {
-    return date;
-}
+  public static class Builder {
+      private Long id;
+      private String title;
+      private Date date;
+      private String description;
 
-public void setDate(Date date) {
-    this.date = date;
-}
+      public Builder id(Long id) {
+          this.id = id;
+          return this;
+      }
 
-public String getDescription() {
-    return description;
-}
+      public Builder title(String title) {
+          this.title = title;
+          return this;
+      }
 
-public void setDescription(String description) {
-    this.description = description;
-}
+      public Builder date(Date date) {
+          this.date = date;
+          return this;
+      }
 
-public static class Builder {
-       private Long id;
-       private String title;
-       private Date date;
-       private String description;
+      public Builder description(String description) {
+          this.description = description;
+          return this;
+      }
 
-       public static Builder id(Long id) {
-        
-           return null ;
-       }
+      public IncidentDTO build() {
+          return new IncidentDTO(this);
+      }
 
-       public Builder name(String name) {
-           return this;
-       }
-
-       public Builder title(String title) {
-           this.title = title;
-           return this;
-       }
-
-       public Builder date(Date date) {
-           this.date = date;
-           return this;
-       }
-
-       public Builder description(String description) {
-           this.description = description;
-           return this;
-       }
-
-       public IncidentDTO build() {
-           return new IncidentDTO(this);
-       }
-   }
+    public Builder name(String name) {
+        return null;
+    }
+  }
 
 public String getName() {
     return null;

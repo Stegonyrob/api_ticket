@@ -41,7 +41,10 @@ public class User {
         this.password = password;
         this.role = role;
     }
-
+    public User() {
+    }
+    
+  
     public Long getId() {
         return id;
     }
@@ -75,6 +78,8 @@ public class User {
 
     public static Object builder() {
         return null;
+    }
+    public void setName(String name2) {
     }
 
     

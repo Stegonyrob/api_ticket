@@ -37,6 +37,18 @@ public void deleteById(Long id) {
 userRepository.deleteById(id);     
 }
 
+@Override
+public User findByUsernameAndPassword(String username, String password) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'findByUsernameAndPassword'");
+}
+
+@Override
+public User findByUsername(String username) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'findByUsername'");
+}
+
   
     
 }

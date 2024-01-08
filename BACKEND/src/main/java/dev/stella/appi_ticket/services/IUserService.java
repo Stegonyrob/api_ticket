@@ -11,8 +11,12 @@ public interface IUserService {
 
   Optional<User> findById(Long id);
 
-  void save(User user);
+  User save(User user);
 
   void deleteById(Long id);
+
+User findByUsernameAndPassword(String username, String password);
+
+boolean checkUserRole(String username, String role);
    
 }

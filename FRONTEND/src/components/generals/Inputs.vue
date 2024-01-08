@@ -36,15 +36,7 @@
        border-radius: 40px;
        transition: .3s;
      
-       &:hover, &:focus{
-           background: transparent;
-           outline: none;
-           box-shadow: none;
-           border-color: rgba(255,255,255,.4);
-       }
-       &:focus{
-           border-color: rgba(255,255,255,.4);
-       }
+   
    }
    
    .field-icon {

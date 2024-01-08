@@ -5,3 +5,7 @@ INSERT INTO users (id_user, name, username, password, role) VALUES (default, 'Pl
 INSERT INTO users (id_user, name, username, password, role) VALUES (default, 'Pata Days', 'duckie', 123, 'worker');
 INSERT INTO users (id_user, name, username, password, role) VALUES (default, 'Pato Donnald', 'duck', 123, 'tecnic');
 INSERT INTO users (id_user, name, username, password, role) VALUES (default, 'Goofy', 'lazy', 123, 'tecnic');
+
+INSERT INTO incidents (date, name, title, description, departament, solution) 
+VALUES ('2024-01-07', 'Mickey Mouse', 'Monitor no funciona', 'El monitor parpadea y luego se apaga', 'it', 'Se cambio el monitor');
+
